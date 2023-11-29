@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build Frontend Image') {
             steps {
-                dir('microservice-app') {
+                dir('microservices-app') {
                     sh 'docker build "frontend:latest" ./frontend'
                 }
             }
