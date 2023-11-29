@@ -18,15 +18,13 @@ pipeline {
             }
         }
 
-       stage('Deploy') {
-    steps {
-        script {
-            try {
-                sh 'docker run -d -p 80:80 frontend:latest'
-                sh 'docker run -d -p 3000:3000 backend:latest'
-            } catch (Exception e) {
-                echo "Caught: ${e}"
-                currentBuild.result = 'FAILURE'
+        stage('Deploy') {
+            steps {
+                script {
+                    // Assuming you have a Docker daemon running on Jenkins
+                    sh 'docker run -d -p 80:80 frontend:latest'
+                    sh 'docker run -d -p 3000:3000 backend:latest'
+                }
             }
         }
     }
