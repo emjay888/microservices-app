@@ -4,12 +4,13 @@ pipeline {
     stages {
         stage('Build Frontend Image') {
             steps {
-                script {
-                    docker.build("frontend:latest", "./frontend")
+                dir('microservice-app') {
+                    sh 'docker build "frontend:latest" ./frontend'
                 }
             }
         }
-
+    }
+}
         stage('Build Backend Image') {
             steps {
                 script {
