@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     // Assuming you have a Docker daemon running on Jenkins
-                    sh 'docker run -d -p 80:80 frontend:latest'
+                    sh 'docker run -d -p 88:88 frontend:latest'
                     sh 'docker run -d -p 3000:3000 backend:latest'
                 }
             }
