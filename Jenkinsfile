@@ -5,7 +5,7 @@ pipeline {
         stage('Build Frontend Image') {
             steps {
                 script {
-                    docker.build("frontend:latest", "microservices-app/frontend")
+                    docker.build("frontend:latest", "./frontend")
                 }
             }
         }
