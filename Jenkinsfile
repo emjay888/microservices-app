@@ -5,16 +5,15 @@ pipeline {
         stage('Build Frontend Image') {
             steps {
                 dir('microservices-app') {
-                    sh 'docker build "frontend:latest" ./frontend'
+                    sh 'docker build -t "frontend:latest" ./frontend'
                 }
             }
         }
-    }
-}
+
         stage('Build Backend Image') {
             steps {
-                script {
-                    docker.build("backend:latest", "./backend")
+                dir('microservices-app') {
+                    sh 'docker build -t "backend:latest" ./backend'
                 }
             }
         }
